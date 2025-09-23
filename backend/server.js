@@ -7,11 +7,17 @@ const cors = require('cors');
 const app = express();
 connectDB();
 
-app.use(cors({
-  origin: "https://bookmycar-tau.vercel.app/", 
-  methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
-  credentials: true
-}));
+app.use((req, res, next) => {
+  const allowedOrigins = ['https://bookmycar-tau.vercel.app'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  // Add other CORS headers as needed (e.g., Access-Control-Allow-Methods, Access-Control-Allow-Headers)
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 
 app.use(express.json()); // for parsing application/json

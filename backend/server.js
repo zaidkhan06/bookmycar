@@ -8,7 +8,7 @@ const app = express();
 connectDB();
 
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: "https://bookmycar-7c3x81ntg-zaid-khans-projects-1ae86e05.vercel.app", 
   methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));

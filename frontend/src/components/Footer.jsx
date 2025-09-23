@@ -21,7 +21,7 @@ function Footer() {
         {/* Admin Links */}
         <div className="flex gap-4 text-sm text-gray-300 hover:text-gray-100 transition-colors">
           <Link to="/admin/login">Admin Login</Link>
-          {/* <Link to="/admin/register">Admin Register</Link> */}
+           <Link to="/admin/register">Admin Register</Link> 
         </div>
       </div>
 

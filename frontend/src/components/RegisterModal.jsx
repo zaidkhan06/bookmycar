@@ -146,7 +146,7 @@ const RegisterModal = ({ onRegister }) => {
             <input
               type="file"
               name="drivingLicence"
-              required
+              // required
               accept=".jpg,.jpeg,.png,.heif,.pdf,image/*,application/pdf"
               onChange={handleFileValidation}
               className="w-full sm:px-4 px-1 sm:py-2 py-1 border border-gray-300 rounded-md
@@ -163,7 +163,7 @@ const RegisterModal = ({ onRegister }) => {
             <input
               type="file"
               name="aadhaar"
-              required
+              // required
               accept=".jpg,.jpeg,.png,.heif,.pdf,image/*,application/pdf"
               onChange={handleFileValidation}
               className="w-full sm:px-4 px-1 sm:py-2 py-1 border border-gray-300 rounded-md

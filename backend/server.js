@@ -7,6 +7,11 @@ const cors = require('cors');
 const app = express();
 connectDB();
 
+app.use(cors({
+  origin: 'https://bookmycar-tau.vercel.app'
+}));
+
+
 app.use((req, res, next) => {
   const allowedOrigins = ['https://bookmycar-tau.vercel.app'];
   const origin = req.headers.origin;

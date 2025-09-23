@@ -5,7 +5,7 @@ const Booking = require("../models/booking");
 const User = require("../models/user");
 const Variant = require("../models/variant");
 const authMiddleware = require("../middleware/auth"); 
-const adminMiddleware = require("../middleware/admin"); // optional: admin-only route
+
 
 // ---------------------------
 // 1️⃣ Fetch all bookings (Admin)

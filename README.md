@@ -4,6 +4,7 @@ BookMyCar is a MERN stack-based Car Rental Service that allows users to search, 
 It includes both customer-facing features and a dedicated admin panel for managing cars, bookings, and customers.
 
 ✨ Features
+
 🔹 User Side
 
 🔐 Authentication – Register & login with email, password, Aadhaar & Driving Licence upload.

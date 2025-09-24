@@ -98,7 +98,7 @@ cd bookmycar
 2️⃣ Backend Setup
 cd backend
 npm install
-npm run dev
+npx nodemon
 
 3️⃣ Frontend Setup
 cd frontend

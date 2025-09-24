@@ -6,16 +6,16 @@ import { useAuth } from "../context/AuthContext";
 import { Home, User, Mail, LogOut } from "lucide-react";
 
 const Navbar = () => {
-  const { user, logout } = useAuth(); // AuthContext se user aur logout le rahe hain
+  const { user, logout } = useAuth(); 
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const profileRef = useRef(null);
 
   const handleLogout = () => {
-    logout(); // context ke logout function ko call kare
+    logout(); 
     setShowDropdown(false);
-    navigate("/"); // logout ke baad home
+    navigate("/"); 
   };
 
   return (

@@ -2,12 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import heroBg from '../assets/blob-scene-haikei.png';
 import { ArrowRight, ChevronsDown } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // ✅ import context
+import { useAuth } from '../context/AuthContext'; 
 
 function Hero({ scrollToSearch }) {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const navigate = useNavigate();
-  const { user } = useAuth; // ✅ get user from context
+  const { user } = useAuth; 
   const currentUser = user || JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Hero({ scrollToSearch }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Button click handler
+  // Button click handler
   const handleBookNow = () => {
     if (currentUser) {
       navigate("/search");
@@ -48,14 +48,14 @@ function Hero({ scrollToSearch }) {
           Find, Rent, and Drive Your Dream Car
         </p>
         <button
-          onClick={handleBookNow} // ✅ logic applied here
+          onClick={handleBookNow} 
           className="mt-6 rounded-full flex items-center gap-1 bg-blue-800 text-white px-3 py-2 shadow-md hover:bg-blue-700 transition duration-300"
         >
           Book Now <ArrowRight className="w-4 h-4" />
         </button>
       </div>
 
-      {/* 👇 Scroll Down Indicator */}
+      {/* Scroll Down Indicator */}
       {showScrollIndicator && (
         <div className="absolute bottom-36 md:bottom-20 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-blue-800">
           <ChevronsDown size={32} />

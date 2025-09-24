@@ -11,7 +11,7 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET
 });
 
-// 1️⃣ Create order (amount in paise)
+// Create order (amount in paise)
 router.post("/create-order", async (req, res) => {
   try {
     const { amount } = req.body;
@@ -30,7 +30,7 @@ router.post("/create-order", async (req, res) => {
   }
 });
 
-// 2️⃣ Verify payment & save booking with vehicle allocation
+// Verify payment & save booking with vehicle allocation
 router.post("/verify", async (req, res) => {
   try {
     const { userId, variantId, fromDate, toDate, totalPrice, paymentId } = req.body;
@@ -39,7 +39,7 @@ router.post("/verify", async (req, res) => {
     const variant = await Variant.findById(variantId);
     if (!user || !variant) return res.status(404).json({ message: "User or Variant not found" });
 
-    // 🔹 1. Find booked vehicles in selected date range
+    // Find booked vehicles in selected date range
     const bookedVehicles = await Booking.find({
       variant: variantId,
       $or: [
@@ -50,17 +50,17 @@ router.post("/verify", async (req, res) => {
       status: { $in: ["Upcoming"] }
     }).distinct("vehicleRegNo");
 
-    // 🔹 2. Find first available vehicle
+    // Find first available vehicle
     const availableVehicle = variant.vehicles.find(v => !bookedVehicles.includes(v));
     if (!availableVehicle) {
       return res.status(400).json({ message: "No vehicles available for selected dates" });
     }
 
-    // 🔹 3. Create booking
+    // Create booking
     const booking = new Booking({
       user: user._id,
       variant: variant._id,
-      vehicleRegNo: availableVehicle,  // ← allocated vehicle
+      vehicleRegNo: availableVehicle,  
       fromDate,
       toDate,
       totalPrice,

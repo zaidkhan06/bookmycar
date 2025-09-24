@@ -24,7 +24,7 @@ function SearchResultsPage() {
   const [loading, setLoading] = useState(true);
 
   // Vehicle availability state
-  const [availability, setAvailability] = useState({}); // { variantId: [ { regNo, available }, ... ] }
+  const [availability, setAvailability] = useState({}); 
 
   const [filters, setFilters] = useState({
     priceRange: [0, 10000],

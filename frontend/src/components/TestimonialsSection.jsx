@@ -1,6 +1,6 @@
 import { motion as _motion } from "framer-motion";
 import { useMemo } from "react";
-import AvatarImg from "../assets/avtar.png"; // <-- your avatar image
+import AvatarImg from "../assets/avtar.png"; 
 
 const generateTestimonials = () => {
   const comments = [

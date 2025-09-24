@@ -1,12 +1,11 @@
-// ProfilePage.jsx
 import React from "react";
 import UserProfile from "../components/UserProfile";
-import { useAuth } from "../context/AuthContext"; // use custom hook
+import { useAuth } from "../context/AuthContext"; 
 
 const ProfilePage = () => {
-  const { user } = useAuth(); // safer
+  const { user } = useAuth(); 
 
-  if (!user) return <div>Loading...</div>; // or redirect to login
+  if (!user) return <div>Loading...</div>; 
 
   return (
     <div className="p-4">

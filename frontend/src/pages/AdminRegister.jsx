@@ -1,4 +1,3 @@
-// src/components/AdminRegisterModal.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -44,12 +43,12 @@ const AdminRegisterModal = ({ onRegister }) => {
       localStorage.setItem("admin", JSON.stringify(res.data.admin));
 
       if (onRegister) onRegister(res.data.admin);
-      alert("✅ Admin Registration Successful!");
+      alert("Admin Registration Successful!");
       navigate("/admin/newregister");
     } catch (err) {
       console.error(err.response?.data || err.message);
       setError(err.response?.data?.msg || "Registration failed");
-      alert("❌ Registration Failed!");
+      alert("Registration Failed!");
     }
   };
 

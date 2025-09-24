@@ -8,12 +8,12 @@ const variantSchema = new mongoose.Schema(
     price: { type: Number, required: true },
     seating: { type: Number, required: true },
     ac: { type: String, enum: ["AC", "Non-AC"], required: true },
-    image: { type: String }, // image url
+    image: { type: String }, 
 
-    // ✅ Vehicles array to store registration numbers
+    // Vehicles array to store registration numbers
     vehicles: {
       type: [String],
-      default: [], // initially empty
+      default: [], 
     },
   },
   { timestamps: true }

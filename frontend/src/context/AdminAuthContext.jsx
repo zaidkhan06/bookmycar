@@ -4,7 +4,7 @@ const AdminAuthContext = createContext();
 
 export const AdminAuthProvider = ({ children }) => {
   const [admin, setAdmin] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ loading state
+  const [loading, setLoading] = useState(true); 
 
   // Load admin from localStorage on mount
   useEffect(() => {
@@ -39,7 +39,7 @@ export const AdminAuthProvider = ({ children }) => {
       value={{
         admin,
         isAuthenticated: !!admin,
-        loading, // expose loading
+        loading, 
         login,
         logout,
         updateAdmin,

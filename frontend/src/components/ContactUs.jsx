@@ -1,4 +1,3 @@
-// src/components/ContactModal.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { User, Mail, Phone, MessageCircle, MapPin } from "lucide-react";
@@ -54,7 +53,7 @@ const ContactModal = () => {
 
         {submitted ? (
           <p className="text-green-600 text-center font-medium">
-            ✅ Thank you! We’ll get back to you soon.
+            Thank you! We’ll get back to you soon.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -132,7 +131,7 @@ const ContactModal = () => {
           </form>
         )}
 
-        {/* Static Contact Info with Icons */}
+        {/* Static Contact Info */}
         <div className="mt-6 text-gray-600 text-sm space-y-2">
           <div className="flex items-center justify-center gap-2">
             <MapPin size={16} className="text-blue-800" /> 

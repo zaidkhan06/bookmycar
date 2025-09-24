@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // AuthContext import
+import { useAuth } from "../context/AuthContext"; 
 
 const LoginModal = ({ onClose }) => {
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ const LoginModal = ({ onClose }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { login } = useAuth(); // useAuth hook se login function le lo
+  const { login } = useAuth(); 
 
   // Scroll control for modal
   useEffect(() => {
@@ -25,7 +25,7 @@ const LoginModal = ({ onClose }) => {
 
   const handleClose = () => {
     if (onClose) onClose();
-    navigate("/"); // Close ke baad home redirect
+    navigate("/"); 
   };
 
   const handleSubmit = async (e) => {
@@ -38,7 +38,7 @@ const LoginModal = ({ onClose }) => {
         password,
       });
 
-      // Context + localStorage dono update karo (token bhi pass karo)
+      
       login(data.user, data.token);
 
       if (onClose) onClose(); // modal close

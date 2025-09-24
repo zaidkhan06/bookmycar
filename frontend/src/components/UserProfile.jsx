@@ -20,7 +20,7 @@ const UserProfile = () => {
           headers: { Authorization: `Bearer ${user.token}` },
         });
 
-        // ✅ Fix: your backend returns { bookings: [...] }
+        
         setBookings(Array.isArray(data.bookings) ? data.bookings : []);
       } catch (err) {
         console.error("Failed to fetch bookings:", err.response?.data || err);

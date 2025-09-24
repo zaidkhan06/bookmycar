@@ -6,7 +6,7 @@ import TestimonialsSection from "./TestimonialsSection";
 const SearchSection = forwardRef((props, ref) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [visibleCount, setVisibleCount] = useState(6); // Show 6 cars initially
+  const [visibleCount, setVisibleCount] = useState(6); 
 
   const handleBookNow = (car) => {
     navigate("/booking", { state: { car } });
@@ -52,7 +52,7 @@ const SearchSection = forwardRef((props, ref) => {
         </div>
       </div>
 
-      {/* 🚘 Cars Display Section */}
+      {/* Cars Display Section */}
       <div className="mt-10 w-full px-4 sm:px-12 mb-10">
         <h3 className="text-xl font-semibold mb-4 text-gray-700">
           Available Cars
@@ -88,7 +88,7 @@ const SearchSection = forwardRef((props, ref) => {
           ))}
         </div>
 
-        {/* 🔘 Show More Button */}
+        {/* Show More Button */}
         {visibleCount < carData.length && (
           <div className="mt-4 text-center">
             <button

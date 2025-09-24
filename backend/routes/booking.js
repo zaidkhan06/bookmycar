@@ -7,15 +7,13 @@ const Variant = require("../models/variant");
 const authMiddleware = require("../middleware/auth"); 
 
 
-// ---------------------------
-// 1️⃣ Fetch all bookings (Admin)
-// ---------------------------
+// Fetch all bookings (Admin)
 router.get("/all", async (req, res) => {
   try {
     const bookings = await Booking.find()
-      .populate("user", "name email")       // get user info
-      .populate("variant")                  // get variant info
-      .sort({ createdAt: -1 });             // latest first
+      .populate("user", "name email")       
+      .populate("variant")                  
+      .sort({ createdAt: -1 });             
 
     res.status(200).json({ bookings });
   } catch (err) {
@@ -24,9 +22,8 @@ router.get("/all", async (req, res) => {
   }
 });
 
-// ---------------------------
-// 2️⃣ Fetch bookings for a specific user
-// ---------------------------
+
+// Fetch bookings for a specific user
 router.get("/user/:userId", authMiddleware, async (req, res) => {
   try {
     const userId = req.params.userId;

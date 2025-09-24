@@ -71,7 +71,7 @@ router.post(
         name,
         email,
         phone,
-        password: '' // fill after hashing
+        password: '' 
       });
 
       // attach file metadata
@@ -187,11 +187,11 @@ router.get("/admin/customers", async (req, res) => {
   }
 });
 
-// PATCH /api/admin/customers/:userId/verify
+
 router.patch("/admin/customers/:userId/verify", async (req, res) => {
   try {
     const { userId } = req.params;
-    const { docType, status } = req.body; // docType = "aadhaar" | "drivingLicence"
+    const { docType, status } = req.body; 
 
     if (!["aadhaar", "drivingLicence"].includes(docType))
       return res.status(400).json({ msg: "Invalid document type" });

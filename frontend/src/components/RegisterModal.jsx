@@ -1,4 +1,3 @@
-// src/components/RegisterModal.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useLocation } from "react-router-dom";
@@ -19,7 +18,7 @@ const RegisterModal = ({ onRegister }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // jaha se user aaya tha wahi save karlo
+  
   const from = location.state?.from || "/";
 
   useEffect(() => {
@@ -66,15 +65,15 @@ const RegisterModal = ({ onRegister }) => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      // Call callback to update Navbar immediately
+      
       if (onRegister) onRegister(res.data.user);
 
-      alert("✅ Registration Successful!");
-      navigate(from); // success ke baad wapas wahi
+      alert("Registration Successful!");
+      navigate(from); 
     } catch (err) {
       console.error(err.response?.data || err.message);
       setError(err.response?.data?.msg || "Registration failed");
-      alert("❌ Registration Failed!");
+      alert("Registration Failed!");
     }
   };
 
@@ -83,7 +82,7 @@ const RegisterModal = ({ onRegister }) => {
       <div className="relative text-center bg-white rounded-xl p-6 w-full max-w-70 sm:max-w-sm shadow-xl">
         {/* Close Button */}
         <button
-          onClick={() => navigate(from)} // ❌ pe sidha wahi route
+          onClick={() => navigate(from)} 
           className="absolute top-2 right-3 text-gray-500 text-xl hover:text-gray-700"
         >
           &times;
@@ -146,7 +145,7 @@ const RegisterModal = ({ onRegister }) => {
             <input
               type="file"
               name="drivingLicence"
-              // required
+              required
               accept=".jpg,.jpeg,.png,.heif,.pdf,image/*,application/pdf"
               onChange={handleFileValidation}
               className="w-full sm:px-4 px-1 sm:py-2 py-1 border border-gray-300 rounded-md
@@ -163,7 +162,7 @@ const RegisterModal = ({ onRegister }) => {
             <input
               type="file"
               name="aadhaar"
-              // required
+              required
               accept=".jpg,.jpeg,.png,.heif,.pdf,image/*,application/pdf"
               onChange={handleFileValidation}
               className="w-full sm:px-4 px-1 sm:py-2 py-1 border border-gray-300 rounded-md

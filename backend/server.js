@@ -7,28 +7,36 @@ const cors = require('cors');
 const app = express();
 connectDB();
 
+// Allowed origins
+const allowedOrigins = [
+  'http://localhost:5173', // Vite frontend local
+  'https://bookmycar-tau.vercel.app' // deployed frontend
+];
+
 app.use(cors({
-  origin: 'https://bookmycar-tau.vercel.app'
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // allow tools like Postman
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('CORS not allowed'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-
+// Global headers 
 app.use((req, res, next) => {
-  const allowedOrigins = ['https://bookmycar-tau.vercel.app'];
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  }
-  // Add other CORS headers as needed (e.g., Access-Control-Allow-Methods, Access-Control-Allow-Headers)
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
 });
 
+app.use(express.json());
 
-app.use(express.json()); // for parsing application/json
-
-
-// Static route to serve uploaded files (only if you want to serve them)
+// Serve uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
@@ -38,6 +46,5 @@ app.use("/api/variants", require("./routes/variantRoutes"));
 app.use("/api/bookings", require("./routes/booking"));
 app.use("/api/payment", require("./routes/payment"));
 
-
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Server started on ${PORT}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

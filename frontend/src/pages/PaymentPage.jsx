@@ -10,7 +10,7 @@ const PaymentPage = () => {
     const API_URL = import.meta.env.VITE_API_URL;
     const location = useLocation();
     const navigate = useNavigate();
-    const { user } = useAuth(); // logged-in user
+    const { user } = useAuth(); 
 
     const [variant, setVariant] = useState(null);
     const [fromDate, setFromDate] = useState("");
@@ -33,7 +33,7 @@ const PaymentPage = () => {
 
         const finalVariant = stateVariant || savedVariant;
 
-        // Make sure the variant has a valid _id
+       
         if (!finalVariant._id) {
             alert("Invalid variant data. Please select the car again.");
             navigate("/search");
@@ -101,7 +101,7 @@ const PaymentPage = () => {
     return (
         <div className="min-h-screen pt-24 bg-gray-100 px-4 sm:px-10 flex flex-col items-center justify-center">
             <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-lg text-center">
-                <h2 className="text-2xl font-semibold text-blue-800 mb-4 font-semibold">
+                <h2 className="text-2xl font-semibold text-blue-800 mb-4 ">
                     Payment for {variant.company} {variant.name}
                 </h2>
 

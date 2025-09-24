@@ -5,7 +5,7 @@ import { useAdminAuth } from "../context/AdminAuthContext";
 
 const AdminLogin = ({ onClose }) => {
   const API_URL = import.meta.env.VITE_API_URL;
-  const { login } = useAdminAuth(); // ✅ context login
+  const { login } = useAdminAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ const AdminLogin = ({ onClose }) => {
         password,
       });
 
-      // ✅ Use context to save admin & token
+      // Use context to save admin & token
       login(data.admin, data.token);
 
       if (onClose) onClose();

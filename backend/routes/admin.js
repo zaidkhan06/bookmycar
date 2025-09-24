@@ -62,7 +62,7 @@ router.post("/login", async (req, res) => {
 // Get all admins
 router.get("/all", async (req, res) => {
   try {
-    const admins = await Admin.find().select("-password"); // password hide kar do
+    const admins = await Admin.find().select("-password");
     res.status(200).json(admins);
   } catch (err) {
     console.error(err);

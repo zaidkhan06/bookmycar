@@ -11,7 +11,7 @@ const BookingPage = () => {
   const minDate = `${year}-${month}-${day}`;
   const location = useLocation();
   const navigate = useNavigate();
-  const car = location.state?.car; // must be fetched from backend with _id
+  const car = location.state?.car; 
 
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
@@ -44,11 +44,11 @@ const BookingPage = () => {
       return;
     }
 
-    // ✅ Send only variant._id to backend along with other details
+    
     navigate("/payment", {
       state: {
         variant: {
-          _id: car._id,  // important! must exist
+          _id: car._id,  
           name: car.name,
           company: car.company,
           price: car.price,

@@ -32,7 +32,7 @@ function App() {
         {/* Public routes */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<> <LoginModal /> <Home /></>} />
-        <Route path="/register" element={ <><RegisterModal /> <Home /> </>} />
+        <Route path="/register" element={<><RegisterModal /> <Home /> </>} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/contact-us" element={<><ContactUs /> <Home /></>} />
@@ -77,18 +77,18 @@ function App() {
           }
         />
 
-        {/* Admin (तुम बाद में चाहो तो ProtectedRoute लगा सकते हो */}
+
         <Route path="/admin/register" element={<><AdminRegister /> <Home /></>} />
         <Route path="/admin/login" element={<><AdminLogin /> <Home /></>} />
+        {/* Admin ProtectedRoute */}
 
-
-        <Route 
-        path="/admin" 
-        element={
-        <AdminProtectedRoute>
-        <AdminLayout />
-        </AdminProtectedRoute>
-        }>
+        <Route
+          path="/admin"
+          element={
+            <AdminProtectedRoute>
+              <AdminLayout />
+            </AdminProtectedRoute>
+          }>
           <Route path="newregister" element={<RegisterAdmin />} />
           <Route path="add-variants" element={<AddVariants />} />
           <Route path="variants" element={<Variants />} />

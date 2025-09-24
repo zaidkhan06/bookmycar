@@ -4,13 +4,13 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // <-- add loading
+  const [loading, setLoading] = useState(true); 
 
   // Load user from localStorage on mount
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) setUser(JSON.parse(savedUser));
-    setLoading(false); // <-- done loading
+    setLoading(false); 
   }, []);
 
   const login = (userData, token) => {
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         isAuthenticated: !!user,
-        loading,          // <-- expose loading
+        loading,         
         login,
         logout,
         updateDocumentStatus,

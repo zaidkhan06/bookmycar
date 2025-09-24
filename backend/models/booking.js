@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bookingSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   variant: { type: mongoose.Schema.Types.ObjectId, ref: "Variant", required: true },
-  vehicleRegNo: { type: String, required: true }, // ← allocated vehicle registration number
+  vehicleRegNo: { type: String, required: true }, 
   fromDate: { type: Date, required: true },
   toDate: { type: Date, required: true },
   totalPrice: { type: Number, required: true },

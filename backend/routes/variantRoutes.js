@@ -26,7 +26,7 @@ router.post("/add", upload.single("image"), async (req, res) => {
       price,
       seating,
       ac,
-      image: `/uploads/${req.file.filename}`, // save image path
+      image: `/uploads/${req.file.filename}`, 
     });
 
     await newVariant.save();
